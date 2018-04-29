@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -54,6 +55,7 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         populateUI(sandwich);
+
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -68,18 +70,33 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
         Log.i(DetailActivity.class.getCanonicalName(), "Populating the UI");
-        activityDetailBinding.originTv.setText(sandwich.getPlaceOfOrigin());
-        activityDetailBinding.descriptionTv.setText(sandwich.getDescription());
-        activityDetailBinding.alsoKnownTv.setText(convertListToStr(sandwich.getAlsoKnownAs()));
-        activityDetailBinding.ingredientsTv.setText(convertListToStr(sandwich.getIngredients()));
 
+        String placeOfOrigin = setNAIfEmpty(sandwich.getPlaceOfOrigin());
+        activityDetailBinding.originTv.setText(placeOfOrigin);
 
+        String description = setNAIfEmpty(sandwich.getDescription());
+        activityDetailBinding.descriptionTv.setText(description);
+
+        String alsoKnownAs = setNAIfEmpty(convertListToStr(sandwich.getAlsoKnownAs()));
+        activityDetailBinding.alsoKnownTv.setText(alsoKnownAs);
+
+        String ingredients = setNAIfEmpty(convertListToStr(sandwich.getIngredients()));
+        activityDetailBinding.ingredientsTv.setText(ingredients);
     }
+
     private String convertListToStr(List<String> list){
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (String line: list){
-            result += "• " + line + "\n";
+            result.append("• ").append(line).append("\n");
         }
-        return result;
+        return result.toString();
+    }
+
+    private String setNAIfEmpty(String str){
+        if (TextUtils.isEmpty(str)){
+            return "N/A";
+        }else {
+            return str;
+        }
     }
 }

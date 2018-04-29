@@ -13,16 +13,16 @@ import java.util.List;
 
 public class JsonUtils {
 
-    private static String NAME_KEY = "name";
-    private static String MAIN_NAME_KEY = "mainName";
-    private static String ALSO_KNOWN_AS_KEY = "alsoKnownAs";
-    private static String PLACE_OF_ORIGIN_KEY = "placeOfOrigin";
-    private static String DESCRIPTION_KEY = "description";
-    private static String IMAGE_KEY = "image";
-    private static String INGREDIENTS_KEY = "ingredients";
+    private static final String NAME_KEY = "name";
+    private static final String MAIN_NAME_KEY = "mainName";
+    private static final String ALSO_KNOWN_AS_KEY = "alsoKnownAs";
+    private static final String PLACE_OF_ORIGIN_KEY = "placeOfOrigin";
+    private static final String DESCRIPTION_KEY = "description";
+    private static final String IMAGE_KEY = "image";
+    private static final String INGREDIENTS_KEY = "ingredients";
 
     public static Sandwich parseSandwichJson(String json) {
-        
+
         Sandwich sandwich = null;
 
         try {

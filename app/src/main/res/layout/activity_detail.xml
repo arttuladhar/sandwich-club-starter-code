@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="8dp"
-        >
+        android:layout_margin="8dp">
 
         <ImageView
             android:id="@+id/image_iv"
@@ -19,16 +18,14 @@
             android:layout_height="200dp"
             android:contentDescription="@string/sandwich_picture_content_description"
             android:scaleType="centerCrop"
-            android:layout_margin="4dp"
-            />
+            android:layout_margin="4dp" />
 
         <TextView
             android:id="@+id/origin_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/detail_place_of_origin_label"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/origin_tv"
@@ -41,8 +38,7 @@
             android:layout_height="wrap_content"
             android:text="@string/detail_also_known_as_label"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/also_known_tv"
@@ -73,7 +69,15 @@
             android:id="@+id/description_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Description" />
+            tools:text="Description"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/art"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ART 2018"
+            android:layout_marginBottom="20dp" />
     </LinearLayout>
 </ScrollView>
 </layout>
